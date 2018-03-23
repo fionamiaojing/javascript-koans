@@ -146,10 +146,36 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
+    var numbers = [1,2,3,4,5];
+
+    var diff = numbers.reduce((acc, cur) => acc + Math.pow(cur, 2), 0) - Math.pow(numbers.reduce((acc, cur) => acc + cur), 2);
+
+    expect(diff).toBe(-170);
+
 
   });
 
   it("should find the 10001st prime", function () {
+    var count = 0;
+
+    var isPrime = function(item) {
+      for (var i = 2; i <= Math.sqrt(item); i++) {
+        if (item % i == 0 && item !== 2) {
+          return false
+        };
+      };
+      return item >= 2 && true;
+    };
+
+    var number = 0;
+    while (count < 10001) {
+      number++
+      if (isPrime(number)) {
+        count++;
+      };
+    };
+
+    expect(number).toBe(104743);
 
   });
 
